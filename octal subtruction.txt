@@ -1,0 +1,66 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int sum=0;
+    int oct1,oct2, dec1 = 0, temp1, base1 = 1,
+                   dec2 = 0, temp2, base2 = 1,correct=0;
+  octal3 :  cout<<"please enter the octal number : ";
+    cin >> oct1;
+    while (oct1)
+    {
+        correct=oct1;
+        correct%=10;
+        if(correct<=7 && correct>=0)
+        {
+            temp1 = oct1 % 10;
+            oct1 /= 10;
+            dec1 += (temp1*base1);
+            base1 *= 8;
+        }
+        else
+        {
+                cout<<"error"<<endl;
+                oct1=0;
+                goto octal3;
+        }
+    }
+    octal4 : cout<<"please enter the second octal number : " ;
+    cin>>oct2;
+    while (oct2)
+    {
+        correct=oct2;
+        correct%=10;
+        if(correct<=7 && correct>=0)
+        {
+            temp2 = oct2 % 10;
+            oct2 /= 10;
+            dec2 += (temp2*base2);
+            base2 *= 8;
+        }
+        else
+        {
+                cout<<"error"<<endl;
+                oct2=0;
+                goto octal4;
+        }
+    }
+    sum=(dec1-dec2);
+    if(sum<0)
+    {
+        sum=0;
+        cout<<"error"<<endl;
+    }
+    int oct[100], i = 0;
+    while (sum != 0)
+    {
+        oct[i] = sum % 8;
+        sum /= 8;
+        i++;
+    }
+    for (int j = i - 1; j >= 0; j--)
+    {
+        cout << oct[j];
+    }
+    cout << endl;
+}

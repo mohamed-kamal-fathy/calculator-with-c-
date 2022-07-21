@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	int num, pw;
+	float y = 1;
+	cout << "please enter the number \n";
+	cin >> num;
+	cout << "please enter the power \n";
+	cin >> pw;
+	if (pw > 0)
+	{
+		for (int i = 0; i < pw; i++)
+		{
+			y *= num;
+		}
+		cout << y << endl;
+	}
+	else if (pw < 0)
+	{
+		for (int i = 0; i > pw; i--)
+		{
+			y *= (1 / num);
+		}
+		cout << y << endl;
+	}
+	else
+		cout << y << endl;
+}

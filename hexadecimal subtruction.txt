@@ -1,0 +1,60 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int sum=0;
+    int hex1[101],hex2[101], dec1 = 0, temp1, base1 = 1,
+                             dec2 = 0, temp2, base2 = 1;
+    cout<<"please enter the hexadecimal number : ";
+    cin >> hex1;
+    cout<<"please enter the hexadecimal number : " ;
+    cin>>hex2;
+    for (int i = 0; hex1[i] != '\0'; i++)
+    {
+        len--;
+        if (hex1[i] >= '0' && hex1[i] <= '9')
+            temp = hex1[i] - 48;
+        else if (hex1[i] >= 'a' && hex1[i] <= 'f')
+            temp = hex1[i] - 87;
+        else if (hex1[i] >= 'A' && hex1[i] <= 'F')
+            temp = hex1[i] - 55;
+        dec1 += temp * pow(16, len);
+    }
+    for (int i = 0; hex2[i] != '\0'; i++)
+    {
+        len--;
+        if (hex2[i] >= '0' && hex2[i] <= '9')
+            temp = hex2[i] - 48;
+        else if (hex2[i] >= 'a' && hex2[i] <= 'f')
+            temp = hex2[i] - 87;
+        else if (hex2[i] >= 'A' && hex2[i] <= 'F')
+            temp = hex2[i] - 55;
+        dec2 += temp * pow(16, len);
+    }
+    sum=(dec1-dec2);
+    if(sum<0)
+        sum*(-1);
+    int dec, temp, i = 1;
+    char hex[101];
+    cout << " Enter a decimal number : ";
+    cin >> dec;
+    while (dec != 0)
+    {
+        temp = dec % 16;
+        if (temp < 10)
+        {
+            hex[i++] = temp + 48;
+        }
+        else
+        {
+            hex[i++] = temp + 55;
+        }
+        dec /= 16;
+    }
+    for (int j = i; j > 0; j--)
+    {
+        cout << hex[j];
+    }
+    cout << endl;
+
+}

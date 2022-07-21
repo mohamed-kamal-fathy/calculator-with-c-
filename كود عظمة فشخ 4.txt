@@ -1,0 +1,919 @@
+#include <iostream>
+#include<string.h>
+#include<cmath>
+
+using namespace std;
+
+int main()
+{
+    char temp;
+    double choice;
+    double val1, val2, result;
+
+    while (true)
+    {
+  condition:   cout << "1 decimal \n "<<"2 .octal\n" << "3 .hexadecimal\n" << "4 .binary\n" << "5 .exit\n";
+        cin >> temp;
+
+        if (temp >= 'a' && temp <= 'f')
+        {
+         //   choice = temp - 87;
+            cout<<"please enter valid operator \n"<<endl;
+            goto condition ;
+        }
+        else if (temp >= 'A' && temp <= 'F')
+        {
+         //   choice = temp - 55;
+            cout<<"please enter valid operator \n"<<endl;
+            goto condition ;
+        }
+        if (temp>= '1' && temp <= '5')
+        {
+            choice = temp - 48;
+            cout << "--------------------------- \n";
+            if (choice == 5)
+            {
+                cout<<"thanks";
+                break;
+            }
+       /*     if (choice == 1)
+            {
+                cout << "enter value1 :\n";
+                cin >> val1;
+                cout << "enter value2 :\n";
+                cin >> val2;
+                result = val1 + val2;
+                cout << "the result is : " << result << endl;
+                cout << "--------------------------- \n";
+            }
+            else if (choice == 2)
+            {
+                cout << "enter value1 :\n";
+                cin >> val1;
+                cout << "enter value2 :\n";
+                cin >> val2;
+                result = val1 - val2;
+                cout << "the result is : " << result << endl;
+                cout << "--------------------------- \n";
+            }
+            else if (choice == 3)
+            {
+                cout << "enter value1 :\n";
+                cin >> val1;
+                cout << "enter value2 :\n";
+                cin >> val2;
+                result = val1 * val2;
+                cout << "the result is : " << result << endl;
+                cout << "--------------------------- \n";
+            }
+            else if (choice == 4)
+            {
+devide:
+                cout << "enter value1 :\n";
+                cin >> val1;
+                cout << "enter value2 :\n";
+                cin >> val2;
+                if (val2 == 0)
+                {
+                    cout << "error \n";
+                    goto devide;
+                }
+                result = val1 / val2;
+                cout << "the result is : " << result << endl;
+                cout << "--------------------------- \n";
+            }
+            else if (choice == 5)
+            {
+                float y = 1;
+                cout << "please enter the number \n";
+                cin >> val1;
+                cout << "please enter the power \n";
+                cin >> val2;
+                if (val2 > 0)
+                {
+                    for (int i = 0; i < val2; i++)
+                    {
+                        y *= val1;
+                    }
+                    cout << "the result is : " << y << endl;
+                    cout << "--------------------------- \n";
+                }
+                else if (val2 < 0)
+                {
+                    for (int i = 0; i > val2; i--)
+                    {
+                        y *= (1 / val1);
+                    }
+                    cout << "the result is :" << y << endl;
+                    cout << "--------------------------- \n";
+                }
+                else
+                    cout << "the result is : " << y << endl;
+                cout << "--------------------------- \n";
+
+            }
+            else if (choice == 6)
+            {
+
+
+            }        */
+            else if (choice == 2)
+            {
+                while (true)
+                {
+                    cout << "1 .Add\n" << "2 .Subtruction\n" << "3 .Multiply\n" << "4 .octal to binary\n"
+                         << "5 .octal to hexadecimal\n" << "6 .octal to decimal\n" << "7 .exit\n";
+                    cin >> choice;
+                    cout << "--------------------------- \n";
+                    if (choice == 7)
+                    {
+                        break;
+                    }
+                    else if (choice == 1)
+                    {
+                        bool error=1;
+                        int sum = 0;
+                        for (int i = 0; i<2; i++)
+                        {
+                            int oct, dec = 0, temp, base = 1;
+
+                            cout << "please enter the octal number : ";
+                            cin >> oct;
+                            if(oct<=7&& oct>=0)
+                            {
+                                while (oct)
+                                {
+                                    temp = oct % 10;
+                                    oct /= 10;
+                                    dec += (temp*base);
+                                    base *= 8;
+                                }
+                            }
+                            else
+                            {
+                                error=0;
+                                sum=0;
+                                dec=0;
+                                cout<<"invalid octal number \n";
+                                break;
+                            }
+                            sum += dec;
+                        }
+                        int oct[100], i = 0;
+                        while (sum != 0)
+                        {
+                            oct[i] = sum % 8;
+                            sum /= 8;
+                            i++;
+                        }
+                        if(error)
+                            cout<<"The octal number is : ";
+                        for (int j = i - 1; j >= 0; j--)
+                        {
+                            cout << oct[j];
+                        }
+                        cout << endl;
+                        cout << "--------------------------- \n";
+
+                    }
+                    else if (choice == 2)
+                    {
+
+                    }
+                    else if (choice == 3)
+                    {
+                        int sum = 1;
+                        for (int i = 0; i<2; i++)
+                        {
+                            int oct, dec = 0, temp, base = 1;
+                            cout << "please enter the octal number : ";
+                            cin >> oct;
+                            while (oct)
+                            {
+                                temp = oct % 10;
+                                oct /= 10;
+                                dec += (temp*base);
+                                base *= 8;
+                            }
+                            sum *= dec;
+                        }
+                        int oct[100], i = 0;
+                        while (sum != 0)
+                        {
+                            oct[i] = sum % 8;
+                            sum /= 8;
+                            i++;
+                        }
+                        for (int j = i - 1; j >= 0; j--)
+                        {
+                            cout << oct[j];
+                        }
+                        cout << endl;
+                        cout << "--------------------------- \n";
+                    }
+                    else if (choice == 4)
+                    {
+                        int oct, dec = 0, temp, base = 1;
+                        cout << "please enter the octal number : ";
+                        cin >> oct;
+                        while (oct)
+                        {
+                            temp = oct % 10;
+                            oct /= 10;
+                            dec += (temp*base);
+                            base *= 8;
+                        }
+                        int bin[100], i = 0;
+                        while (dec != 0)
+                        {
+                            bin[i] = dec % 2;
+                            dec /= 2;
+                            i++;
+                        }
+                        for (int j = i - 1; j >= 0; j--)
+                        {
+                            cout << bin[j];
+                        }
+                        cout << endl;
+                        cout << "--------------------------- \n";
+                    }
+                    else if (choice == 5)
+                    {
+                        long long oct, dec = 0, temp, base = 1;
+                        cout << "please enter the octal number : ";
+                        cin >> oct;
+                        while (oct)
+                        {
+                            temp = oct % 10;
+                            oct /= 10;
+                            dec += (temp*base);
+                            base *= 8;
+                        }
+                        int i = 1;
+                        char hex[101];
+                        while (dec != 0)
+                        {
+                            temp = dec % 16;
+                            if (temp < 10)
+                            {
+                                hex[i++] = temp + 48;
+                            }
+                            else
+                            {
+                                hex[i++] = temp + 55;
+                            }
+                            dec /= 16;
+                        }
+                        for (int j = i; j > 0; j--)
+                        {
+                            cout << hex[j];
+                        }
+                        cout << endl;
+                        cout << "--------------------------- \n";
+
+                    }
+                    else if (choice == 6)
+                    {
+                        int oct, dec = 0, temp, base = 1;
+                        cout << "please enter the octal number : ";
+                        cin >> oct;
+                        while (oct)
+                        {
+                            temp = oct % 10;
+                            oct /= 10;
+                            dec += (temp*base);
+                            base *= 8;
+
+                        }
+                        cout << dec << endl;
+                        cout << "--------------------------- \n";
+                    }
+
+                }
+            }
+            else if (choice == 3)
+            {
+                while (true)
+                {
+                    cout << "1 .Add\n" << "2 .Subtruction\n" << "3 .Multiply\n" << "4 .hexadecimal to binary\n"
+                         << "5 .hexadecimal to octal\n" << "6 .hexadecimal to decimal\n" << "7 .exit\n";
+                    cin >> choice;
+                    cout << "--------------------------- \n";
+                    if (choice == 7)
+                    {
+                        break;
+                    }
+                    else if (choice == 1)
+                    {
+                        int sum = 0;
+                        for (int i = 0; i<2; i++)
+                        {
+                            char hex[101];
+                            int temp, len, dec = 0;
+                            cout << "Enter a hexadecimal number : ";
+                            cin >> hex;
+                            len = strlen(hex);
+                            for (int i = 0; hex[i] != '\0'; i++)
+                            {
+                                len--;
+                                if (hex[i] >= '0' && hex[i] <= '9')
+                                    temp = hex[i] - 48;
+                                else if (hex[i] >= 'a' && hex[i] <= 'f')
+                                    temp = hex[i] - 87;
+                                else if (hex[i] >= 'A' && hex[i] <= 'F')
+                                    temp = hex[i] - 55;
+                                dec += temp * pow(16, len);
+                            }
+                            sum += dec;
+                        }
+                        int temp, i = 1;
+                        char hex[101];
+                        while (sum != 0)
+                        {
+                            temp = sum % 16;
+                            if (temp < 10)
+                            {
+                                hex[i++] = temp + 48;
+                            }
+                            else
+                            {
+                                hex[i++] = temp + 55;
+                            }
+                            sum /= 16;
+                        }
+                        for (int j = i; j > 0; j--)
+                        {
+                            cout << hex[j];
+                        }
+                        cout << endl;
+                        cout << "--------------------------- \n";
+                    }
+                    else if (choice == 2)
+                    {
+                        char hex1[101], hex2[101];
+                        int sum = 0, dec1 = 0, temp1, dec2 = 0, temp2, len1, len2;
+                        cout << "please enter the hexadecimal number : ";
+                        cin >> hex1;
+                        len1 = strlen(hex1);
+                        cout << "please enter the hexadecimal number : ";
+                        cin >> hex2;
+                        len2 = strlen(hex2);
+                        for (int i = 0; hex1[i] != '\0'; i++)
+                        {
+                            len1--;
+                            if (hex1[i] >= '0' && hex1[i] <= '9')
+                                temp1 = hex1[i] - 48;
+                            else if (hex1[i] >= 'a' && hex1[i] <= 'f')
+                                temp1 = hex1[i] - 87;
+                            else if (hex1[i] >= 'A' && hex1[i] <= 'F')
+                                temp1 = hex1[i] - 55;
+                            dec1 += temp1 * pow(16, len1);
+                        }
+                        for (int i = 0; hex2[i] != '\0'; i++)
+                        {
+                            len2--;
+                            if (hex2[i] >= '0' && hex2[i] <= '9')
+                                temp2 = hex2[i] - 48;
+                            else if (hex2[i] >= 'a' && hex2[i] <= 'f')
+                                temp2 = hex2[i] - 87;
+                            else if (hex2[i] >= 'A' && hex2[i] <= 'F')
+                                temp2 = hex2[i] - 55;
+                            dec2 += temp2 * pow(16, len2);
+                        }
+                        sum = (dec1 - dec2);
+                        if (sum<0)
+                            sum*(-1);
+                        int  temp, i = 1;
+                        char hex[101];
+                        while (sum != 0)
+                        {
+                            temp = sum % 16;
+                            if (temp < 10)
+                            {
+                                hex[i++] = temp + 48;
+                            }
+                            else
+                            {
+                                hex[i++] = temp + 55;
+                            }
+                            sum /= 16;
+                        }
+                        for (int j = i; j > 0; j--)
+                        {
+                            cout << hex[j];
+                        }
+                        cout << endl;
+                        cout << "--------------------------- \n";
+                    }
+
+                    else if (choice == 3)
+                    {
+                        int sum = 1;
+                        for (int i = 0; i<2; i++)
+                        {
+                            char hex[101];
+                            int temp, len, dec = 0;
+                            cout << "Enter a hexadecimal number : ";
+                            cin >> hex;
+                            len = strlen(hex);
+                            for (int i = 0; hex[i] != '\0'; i++)
+                            {
+                                len--;
+                                if (hex[i] >= '0' && hex[i] <= '9')
+                                    temp = hex[i] - 48;
+                                else if (hex[i] >= 'a' && hex[i] <= 'f')
+                                    temp = hex[i] - 87;
+                                else if (hex[i] >= 'A' && hex[i] <= 'F')
+                                    temp = hex[i] - 55;
+                                dec += temp * pow(16, len);
+                            }
+                            sum *= dec;
+                        }
+                        int temp, i = 1;
+                        char hex[101];
+                        while (sum != 0)
+                        {
+                            temp = sum % 16;
+                            if (temp < 10)
+                            {
+                                hex[i++] = temp + 48;
+                            }
+                            else
+                            {
+                                hex[i++] = temp + 55;
+                            }
+                            sum /= 16;
+                        }
+                        for (int j = i; j > 0; j--)
+                        {
+                            cout << hex[j];
+                        }
+                        cout << endl;
+                        cout << "--------------------------- \n";
+                    }
+                    else if (choice == 4)
+                    {
+                        char hex[101];
+                        int temp, len, dec = 0;
+                        cout << "Enter a hexadecimal number : ";
+                        cin >> hex;
+                        len = strlen(hex);
+                        for (int i = 0; hex[i] != '\0'; i++)
+                        {
+                            len--;
+                            if (hex[i] >= '0' && hex[i] <= '9')
+                                temp = hex[i] - 48;
+                            else if (hex[i] >= 'a' && hex[i] <= 'f')
+                                temp = hex[i] - 87;
+                            else if (hex[i] >= 'A' && hex[i] <= 'F')
+                                temp = hex[i] - 55;
+                            dec += temp * pow(16, len);
+                        }
+                        int bin[100], i = 0;
+                        while (dec != 0)
+                        {
+                            bin[i] = dec % 2;
+                            dec /= 2;
+                            i++;
+                        }
+                        cout << "the binary number is : ";
+                        for (int j = i - 1; j >= 0; j--)
+                        {
+                            cout << bin[j];
+                        }
+                        cout << endl;
+                        cout << "--------------------------- \n";
+                    }
+                    else if (choice == 5)
+                    {
+                        char hex[101];
+                        int temp, len, dec = 0;
+                        cout << "Enter a hexadecimal number : ";
+                        cin >> hex;
+                        len = strlen(hex);
+                        for (int i = 0; hex[i] != '\0'; i++)
+                        {
+                            len--;
+                            if (hex[i] >= '0' && hex[i] <= '9')
+                                temp = hex[i] - 48;
+                            else if (hex[i] >= 'a' && hex[i] <= 'f')
+                                temp = hex[i] - 87;
+                            else if (hex[i] >= 'A' && hex[i] <= 'F')
+                                temp = hex[i] - 55;
+                            dec += temp * pow(16, len);
+                        }
+                        int oct[100], i = 0;
+                        while (dec != 0)
+                        {
+                            oct[i] = dec % 8;
+                            dec /= 8;
+                            i++;
+                        }
+                        cout << "the octal number is : ";
+                        for (int j = i - 1; j >= 0; j--)
+                        {
+                            cout << oct[j];
+                        }
+                        cout << endl;
+                        cout << "--------------------------- \n";
+                    }
+                    else if (choice == 6)
+                    {
+                        char hex[101];
+                        int temp, len, dec = 0;
+                        cout << "Enter a hexadecimal number : ";
+                        cin >> hex;
+                        len = strlen(hex);
+                        for (int i = 0; hex[i] != '\0'; i++)
+                        {
+                            len--;
+                            if (hex[i] >= '0' && hex[i] <= '9')
+                                temp = hex[i] - 48;
+                            else if (hex[i] >= 'a' && hex[i] <= 'f')
+                                temp = hex[i] - 87;
+                            else if (hex[i] >= 'A' && hex[i] <= 'F')
+                                temp = hex[i] - 55;
+                            dec += temp * pow(16, len);
+                        }
+                        cout << "the decimal number is : " << dec << endl;
+                        cout << "--------------------------- \n";
+                    }
+                }
+            }
+            else if (choice==4)
+            {
+                while(true)
+                {
+                    cout<<"1 .Add\n" << "2 .Subtruction\n" << "3 .Multiply\n"<<"4 . binary to octal\n"
+                        <<"5 .binary to hexadecimal\n"<<"6 .binary to decimal\n"<<"7 .exit\n" ;
+                    cin>>choice;
+                    cout << "--------------------------- \n";
+                    if(choice==7)
+                    {
+                        break;
+                    }
+                    else if ( choice==1)
+                    {
+                        int sum=0;
+                        for (int i = 0 ; i<2; i++)
+                        {
+                            long int bin, dec = 0, temp, base = 1;
+                            cout << "please enter the binary number \n";
+                            cin >> bin;
+                            while (bin)
+                            {
+                                temp = bin % 10;
+                                bin /= 10;
+                                dec += (temp*base);
+                                base *= 2;
+
+                            }
+                            sum+=dec;
+                        }
+
+                        int bin[100], i = 0;
+                        while (sum != 0)
+                        {
+                            bin[i] = sum % 2;
+                            sum /= 2;
+                            i++;
+                        }
+                        cout<<"the result is : ";
+                        for (int j = i - 1; j >= 0; j--)
+                        {
+                            cout << bin[j];
+                        }
+                        cout << endl;
+                        cout << "--------------------------- \n";
+                    }
+                    else if ( choice==2)
+                    {
+                        long long bin1, dec = 0, temp, base = 1,bin2, dec2 = 0, temp2, base2 = 1,sub;
+                        cout << "please enter the binary number \n";
+                        cin >> bin1;
+                        while (bin1)
+                        {
+                            temp = bin1 % 10;
+                            bin1 /= 10;
+                            dec += (temp*base);
+                            base *= 2;
+                        }
+                        cout << "please enter the second binary number \n";
+                        cin>>bin2;
+                        while (bin2)
+                        {
+                            temp2 = bin2 % 10;
+                            bin2 /= 10;
+                            dec2 += (temp2*base2);
+                            base2 *= 2;
+                        }
+                        sub=(dec-dec2) ;
+                        if(sub<0)
+                            sub*=-1;
+
+                        int bin[100], i = 0;
+                        while (sub != 0)
+                        {
+                            bin[i] = sub % 2;
+                            sub /= 2;
+                            i++;
+                        }
+                        cout<<"The result is : ";
+                        for (int j = i - 1; j >= 0; j--)
+                        {
+                            cout << bin[j];
+                        }
+                        cout << endl;
+                        cout << "--------------------------- \n";
+                    }
+                    else if ( choice==3)
+                    {
+                        int sum=1;
+                        for (int i = 0 ; i<2; i++)
+                        {
+                            long long bin, dec = 0, temp, base = 1;
+                            cout << "please enter the binary number \n";
+                            cin >> bin;
+                            while (bin)
+                            {
+                                temp = bin % 10;
+                                bin /= 10;
+                                dec += (temp*base);
+                                base *= 2;
+
+                            }
+                            sum*=dec;
+                        }
+
+                        int bin[100], i = 0;
+                        while (sum != 0)
+                        {
+                            bin[i] = sum % 2;
+                            sum /= 2;
+                            i++;
+                        }
+                        for (int j = i - 1; j >= 0; j--)
+                        {
+                            cout << bin[j];
+                        }
+                        cout << endl;
+                        cout << "--------------------------- \n";
+                    }
+                    else if ( choice==4)
+                    {
+                        int bin, dec = 0, temp, base = 1;
+                        cout << "please enter the binary number \n";
+                        cin >> bin;
+                        while (bin)
+                        {
+                            temp = bin % 10;
+                            bin /= 10;
+                            dec += (temp*base);
+                            base *= 2;
+
+                        }
+                        int oct[100], i = 0;
+                        while (dec != 0)
+                        {
+                            oct[i] = dec % 8;
+                            dec /= 8;
+                            i++;
+                        }
+                        cout<<"the octal number is : ";
+                        for (int j = i - 1; j >= 0; j--)
+                        {
+                            cout << oct[j];
+                        }
+                        cout << endl;
+                        cout << "--------------------------- \n";
+                    }
+                    else if ( choice==5)
+                    {
+                        long long bin, dec = 0, temp, base = 1;
+                        cout << "please enter the binary number \n";
+                        cin >> bin;
+                        while (bin)
+                        {
+                            temp = bin % 10;
+                            bin /= 10;
+                            dec += (temp*base);
+                            base *= 2;
+                        }
+                        int  i = 1;
+                        char hex[101];
+                        while (dec != 0)
+                        {
+                            temp = dec % 16;
+                            if (temp < 10)
+                            {
+                                hex[i++] = temp + 48;
+                            }
+                            else
+                            {
+                                hex[i++] = temp + 55;
+                            }
+                            dec /= 16;
+                        }
+                        cout<<"The hexadecimal number is : ";
+                        for (int j = i; j > 0; j--)
+                        {
+                            cout << hex[j];
+                        }
+                        cout << endl;
+                        cout << "--------------------------- \n";
+                    }
+
+                    else if ( choice==6)
+                    {
+                        int bin, dec = 0, temp, base = 1;
+                        cout << "please enter the binary number \n";
+                        cin >> bin;
+                        while (bin)
+                        {
+                            temp = bin % 10;
+                            bin /= 10;
+                            dec += (temp*base);
+                            base *= 2;
+
+                        }
+                        cout <<"The decimal number is : " <<dec << endl;
+                        cout << "--------------------------- \n";
+                    }
+
+
+                }
+            }
+            else if (choice==1)
+            {
+                while(true)
+                {
+                    cout<<"1 .Add\n" << "2 .Subtruction\n" << "3 .Multiply\n" << "4 .Divide\n" << "5 .power\n "<<"6 .decimal to binary\n"<<"7 .decimal to hexadecimal\n"<<"8 .decimal to octal\n"<<"9 .exit\n" ;
+                    cin>>choice;
+                    cout << "--------------------------- \n";
+                    if(choice==9)
+                    {
+                        break;
+                    }
+                else if ( choice==1)
+        {
+ cout<<"enter value1 :\n";
+            cin>>val1;
+            cout<<"enter value2 :\n";
+            cin>>val2;
+            result = val1 + val2 ;
+            cout<<"the result is : "<<result<<endl;
+            cout<<"--------------------------- \n";
+        }
+        else if ( choice==2)
+        {
+cout<<"enter value1 :\n";
+            cin>>val1;
+            cout<<"enter value2 :\n";
+            cin>>val2;
+            result = val1 - val2 ;
+cout<<"the result is : "<<result<<endl;
+            cout<<"--------------------------- \n";
+        }
+
+        else if ( choice==3)
+        {
+ cout<<"enter value1 :\n";
+            cin>>val1;
+            cout<<"enter value2 :\n";
+            cin>>val2;
+            result = val1 * val2 ;
+cout<<"the result is : "<<result<<endl;
+            cout<<"--------------------------- \n";
+        }
+        else if ( choice==4)
+        {
+
+       devide :     cout<<"enter value1 :\n";
+            cin>>val1;
+            cout<<"enter value2 :\n";
+            cin>>val2;
+            if(val2==0)
+            {
+                cout<<"error \n";
+                goto devide;
+            }
+            result = val1 / val2 ;
+            cout<<"the result is : "<<result<<endl;
+            cout<<"--------------------------- \n";
+        }
+        else if ( choice==5)
+        {
+                 float y = 1;
+            cout << "please enter the number \n";
+            cin >> val1;
+            cout << "please enter the power \n";
+            cin >> val2;
+            if (val2 > 0)
+            {
+                for (int i = 0; i < val2; i++)
+                {
+                    y *= val1;
+                }
+                cout <<"the result is : "<< y << endl;
+            cout<<"--------------------------- \n";
+            }
+            else if (val2 < 0)
+            {
+                for (int i = 0; i > val2; i--)
+                {
+                    y *= (1 / val1);
+                }
+                cout <<"the result is :"<< y << endl;
+            cout<<"--------------------------- \n";
+            }
+            else
+                cout<<"the result is : "<<y<<endl;
+            cout<<"--------------------------- \n";
+        }
+                    else if ( choice==6)
+                    {
+                        int bin[100], n, i = 0;
+                        cout << "please enter the decimal number \n";
+                        cin >> n;
+                        while (n != 0)
+                        {
+                            bin[i] = n % 2;
+                            n /= 2;
+                            i++;
+                        }
+                        cout<<"The binary number is : ";
+                        for (int j = i - 1; j >= 0; j--)
+                        {
+                            cout << bin[j];
+                        }
+                        cout << endl;
+                        cout << "--------------------------- \n";
+                    }
+                    else if ( choice==7)
+                    {
+                        int dec, temp, i = 1;
+                        char hex[101];
+                        cout << " Enter a decimal number : ";
+                        cin >> dec;
+                        while (dec != 0)
+                        {
+                            temp = dec % 16;
+                            if (temp < 10)
+                            {
+                                hex[i++] = temp + 48;
+                            }
+                            else
+                            {
+                                hex[i++] = temp + 55;
+                            }
+                            dec /= 16;
+                        }
+                        cout<<"The hexadecimal number is : ";
+                        for (int j = i; j > 0; j--)
+                        {
+                            cout << hex[j];
+                        }
+                        cout << endl;
+                        cout << "--------------------------- \n";
+                    }
+                    else if ( choice==8)
+                    {
+                        int oct[100], n, i = 0;
+                        cout << "please enter the decimal number \n";
+                        cin >> n;
+                        while (n != 0)
+                        {
+                            oct[i] = n % 8;
+                            n /= 8;
+                            i++;
+                        }
+                        cout<<"The octal number is : ";
+                        for (int j = i - 1; j >= 0; j--)
+                        {
+                            cout << oct[j];
+                        }
+                        cout << endl;
+                        cout << "--------------------------- \n";
+                    }
+                 /*   else if ( choice==7)
+                    {
+                        break;
+                    }   */
+                }
+
+            }
+        }
+        else
+        {
+                cout<<"invalid operation \n" <<endl;
+                goto condition;
+        }
+
+                ;
+
+    }
+}
+
+
+
+

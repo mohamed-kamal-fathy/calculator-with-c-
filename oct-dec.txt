@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	   bool error5=1;
+    int oct, dec = 0, temp, base = 1,correct=0;
+	cout<<"please enter the octal number : ";
+	cin >> oct;
+	while (oct)
+	{
+	         correct=oct;
+	 correct%=10;
+	 if(correct<=7 && correct>=0)
+         {
+                temp = oct % 10;
+		oct /= 10;
+		dec += (temp*base);
+		base *= 8;
+         }
+	else
+        {
+                cout<<"error"<<endl;
+                oct=0;
+                error5=0;
+        }
+
+	}
+	if(error5)
+	cout <<"The decimal number is :"<< dec << endl;
+}

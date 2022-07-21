@@ -1,0 +1,7 @@
+int sum=;
+    for (int i = 0 ; i<2; i++)
+{
+
+
+sum=dec;
+}

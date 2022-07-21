@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int bin, dec = 0, temp, base = 1;
+    cout << "please enter the binary number \n";
+    cin >> bin;
+    while (bin)
+    {
+        temp = bin % 10;
+        bin /= 10;
+        dec += (temp*base);
+        base *= 2;
+
+    }
+    int oct[100], i = 0;
+    while (dec != 0)
+    {
+        oct[i] = dec % 8;
+        dec /= 8;
+        i++;
+    }
+    cout<<"the octal number is : ";
+    for (int j = i - 1; j >= 0; j--)
+    {
+        cout << oct[j];
+    }
+    cout << endl;
+}
